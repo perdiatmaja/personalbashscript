@@ -38,10 +38,9 @@ getActiveWindow() {
     echo $(python "$CUSTOM_SCRIPT_PATH/activeWindowObserver.py" 2>&1 > /dev/null)
 }
 
-check() {
-    sleep 0s;
-    if [ $(getActiveWindow) = 'Slack' ]
-    then
+activeAntiBajak() {
+    sleep 1s;
+    if [ $(getActiveWindow) = "Slack" ]; then
         pmset displaysleepnow
     else
         $(check)
