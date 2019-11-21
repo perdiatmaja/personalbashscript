@@ -22,6 +22,8 @@ alias minyakUrut="git pull";
 alias ahShitHereWeGoAgain="git checkout develop";
 alias tehTarik="git fetch";
 alias ikuzoooooo="git push -f";
+alias mauLagiDong="git add .";
+alias ikuzo="git push";
 
 if [ $PWD = '/Users/'$(whoami) ]
 then
@@ -36,17 +38,7 @@ fi
 $STOP_CHECK=false
 
 function getActiveWindow() {
-    echo "$(python "$CUSTOM_SCRIPT_PATH/activeWindowObserver.py" 2>&1 > /dev/null)"
+    echo "$(python "$CUSTOM_SCRIPT_PATH/activeWindowObserver.py" 2>&1 > /dev/null)";
 }
 
-activeAntiBajak() {
-    sleep 1s;
-    
-    activeWindow=$(getActiveWindow);
-
-    if [ "$activeWindow" = "Slack" ] || [ $activeWindow = "DingTalk" ]; then
-        pmset displaysleepnow
-    else
-        $(activeAntiBajak)
-    fi
-}
+source "$CUSTOM_SCRIPT_PATH/antibajakscript.sh";
