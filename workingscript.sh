@@ -40,9 +40,9 @@ getActiveWindow() {
 
 activeAntiBajak() {
     sleep 1s;
-    if [ $(getActiveWindow) = "Slack" ]; then
+    if [ $(getActiveWindow) = "Slack" ] || [ $(getActiveWindow) = "DingTalk" ]; then
         pmset displaysleepnow
     else
-        $(check)
+        $(activeAntiBajak)
     fi
 }
